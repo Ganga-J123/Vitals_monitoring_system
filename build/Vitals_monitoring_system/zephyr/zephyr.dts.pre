@@ -898,12 +898,6 @@
   mcuboot-led0 = &led0;
   watchdog0 = &wdt0;
  };
-
- reserved-memory {
-  #address-cells = <1>;
-  #size-cells = <1>;
-  ranges;
- };
 };
 
 &reg {
@@ -1010,16 +1004,8 @@ arduino_spi: &spi2 {
   };
  };
 };
-
-&mwu {
- status = "okay";
-};
-
-&rtc2 {
- status = "disabled";
-};
 # 0 "<command-line>" 2
-# 1 "C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/nrf52dk_nrf52832.overlay" 1
+# 1 "C:/ncs/v2.9.1/Vitals_monitoring_system/nrf52dk_nrf52832.overlay" 1
 
 &i2c0 {
     status = "okay";
@@ -1070,6 +1056,42 @@ arduino_spi: &spi2 {
         zephyr,reference = "ADC_REF_INTERNAL";
         zephyr,acquisition-time = <0>;
         zephyr,input-positive = <6>;
+    };
+};
+
+
+# 1 "C:/ncs/v2.9.1/zephyr/include/zephyr/dt-bindings/led/led.h" 1 3 4
+# 56 "C:/ncs/v2.9.1/Vitals_monitoring_system/nrf52dk_nrf52832.overlay" 2
+
+
+&adc {
+    status = "okay";
+};
+
+&arduino_spi {
+ compatible = "nordic,nrf-spim";
+ led_strip: ws2812@0 {
+  compatible = "worldsemi,ws2812-spi";
+
+
+  reg = <0>;
+  spi-max-frequency = <2400000>;
+
+
+  chain-length = <1>;
+  color-mapping = <2
+     1
+     3>;
+       spi-one-frame = <0x60>;
+  spi-zero-frame = <0x40>;
+ };
+};
+
+/ {
+    aliases {
+        led0 = &led0;
+        sw0 = &button0;
+        led-strip = &led_strip;
     };
 };
 # 0 "<command-line>" 2

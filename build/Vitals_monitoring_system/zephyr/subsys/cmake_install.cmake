@@ -39,112 +39,112 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/canbus/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/canbus/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/debug/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/debug/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/fb/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/fb/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/fs/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/fs/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/ipc/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/ipc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/logging/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/logging/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/mem_mgmt/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/mem_mgmt/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/mgmt/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/mgmt/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/modbus/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/modbus/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/pm/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/pm/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/portability/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/portability/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/random/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/random/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/rtio/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/rtio/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/sd/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/sd/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/stats/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/stats/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/storage/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/storage/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/task_wdt/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/task_wdt/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/testsuite/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/testsuite/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/tracing/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/tracing/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/usb/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/usb/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/bluetooth/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/bluetooth/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/install_local_manifest.txt"
+  file(WRITE "C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

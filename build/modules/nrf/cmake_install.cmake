@@ -35,6 +35,6 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/modules/nrf/install_local_manifest.txt"
+  file(WRITE "C:/ncs/v2.9.1/Vitals_monitoring_system/build/modules/nrf/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

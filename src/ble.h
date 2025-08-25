@@ -3,6 +3,7 @@
 
 #include <zephyr/bluetooth/gatt.h>
 #include <zephyr/kernel.h>
+#include <stdbool.h>
 
 #define SENSOR_NOTIFY_BUF_SIZE 4096
 
@@ -36,5 +37,4 @@ extern struct k_mutex notify_buf_mutex;
 void bt_ready(int err);
 void connected(struct bt_conn *conn, uint8_t err);
 void disconnected(struct bt_conn *conn, uint8_t reason);
-
 #endif 

@@ -6,6 +6,8 @@
 #include <zephyr/bluetooth/hci.h>
 #include <string.h>
 #include "ble.h"
+#include "ws2812.h"
+
 
 char sensor_notify_buf_ppg[SENSOR_NOTIFY_BUF_SIZE];
 char sensor_notify_buf_temp[SENSOR_NOTIFY_BUF_SIZE];
@@ -16,6 +18,7 @@ volatile bool notify_enabled_ppg = false;
 volatile bool notify_enabled_temp = false;
 volatile bool notify_enabled_accel = false;
 struct k_mutex notify_buf_mutex;
+
 
 /* ---------- UUIDs ---------- */
 /* One Service UUID */
@@ -127,6 +130,17 @@ static void assign_attr_pointers(void)
     temp_char_attr  = &vitals_svc.attrs[8];
 }
 
+static const struct bt_le_adv_param *adv_param = BT_LE_ADV_PARAM(
+    (BT_LE_ADV_OPT_CONNECTABLE | BT_LE_ADV_OPT_USE_IDENTITY), 78, 78, NULL);
+
+const struct bt_data ad[] = {
+    BT_DATA_BYTES(BT_DATA_FLAGS, (BT_LE_AD_GENERAL | BT_LE_AD_NO_BREDR)),
+    BT_DATA(BT_DATA_NAME_COMPLETE, "Vitals", 6),
+    BT_DATA_BYTES(BT_DATA_UUID128_ALL,
+                  0xac, 0xdf, 0xd2, 0x00, 0x4b, 0xd6, 0x69, 0xac,
+                  0x97, 0x42, 0x94, 0x26, 0x3e, 0x24, 0x9e, 0xf6)
+};
+
 /* ---------- BLE Helpers ---------- */
 void print_ble_address(void)
 {
@@ -146,11 +160,13 @@ void connected(struct bt_conn *conn, uint8_t err)
     }
     current_conn = bt_conn_ref(conn);
     printk("[BLE] Device Connected\n");
+     ws2812_set_color(&BLUE);
 }
 
 void disconnected(struct bt_conn *conn, uint8_t reason)
 {
     printk("[BLE] Disconnected (reason 0x%02x)\n", reason);
+    ws2812_set_color(&GREEN);
     if (current_conn) {
         bt_conn_unref(current_conn);
         current_conn = NULL;
@@ -163,17 +179,6 @@ void disconnected(struct bt_conn *conn, uint8_t reason)
 BT_CONN_CB_DEFINE(conn_callbacks) = {
     .connected = connected,
     .disconnected = disconnected,
-};
-
-static const struct bt_le_adv_param *adv_param = BT_LE_ADV_PARAM(
-    (BT_LE_ADV_OPT_CONNECTABLE | BT_LE_ADV_OPT_USE_IDENTITY), 78, 78, NULL);
-
-const struct bt_data ad[] = {
-    BT_DATA_BYTES(BT_DATA_FLAGS, (BT_LE_AD_GENERAL | BT_LE_AD_NO_BREDR)),
-    BT_DATA(BT_DATA_NAME_COMPLETE, "Vitals", 6),
-    BT_DATA_BYTES(BT_DATA_UUID128_ALL,
-                  0xac, 0xdf, 0xd2, 0x00, 0x4b, 0xd6, 0x69, 0xac,
-                  0x97, 0x42, 0x94, 0x26, 0x3e, 0x24, 0x9e, 0xf6)
 };
 
 void bt_ready(int err)
@@ -195,3 +200,4 @@ void bt_ready(int err)
         printk("[BLE] Advertising started successfully!\n");
     }
 }
+

@@ -27,4 +27,5 @@ empty_file.o: C:/ncs/v2.9.1/zephyr/misc/empty_file.c \
  C:/ncs/v2.9.1/zephyr/include/zephyr/dt-bindings/adc/nrf-saadc.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/dt-bindings/regulator/nrf5x.h \
  C:/ncs/v2.9.1/zephyr/boards/nordic/nrf52dk/nrf52dk_nrf52832-pinctrl.dtsi \
- C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/nrf52dk_nrf52832.overlay
+ C:/ncs/v2.9.1/Vitals_monitoring_system/nrf52dk_nrf52832.overlay \
+ C:/ncs/v2.9.1/zephyr/include/zephyr/dt-bindings/led/led.h

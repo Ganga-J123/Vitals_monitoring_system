@@ -1,13 +1,13 @@
 # Target labels
  Vitals_monitoring_system
 # Source files and their labels
-C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/CMakeFiles/Vitals_monitoring_system
-C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/CMakeFiles/Vitals_monitoring_system.rule
-C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/CMakeFiles/Vitals_monitoring_system-complete.rule
-C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/Vitals_monitoring_system-prefix/src/Vitals_monitoring_system-stamp/Vitals_monitoring_system-build.rule
-C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/Vitals_monitoring_system-prefix/src/Vitals_monitoring_system-stamp/Vitals_monitoring_system-configure.rule
-C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/Vitals_monitoring_system-prefix/src/Vitals_monitoring_system-stamp/Vitals_monitoring_system-download.rule
-C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/Vitals_monitoring_system-prefix/src/Vitals_monitoring_system-stamp/Vitals_monitoring_system-install.rule
-C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/Vitals_monitoring_system-prefix/src/Vitals_monitoring_system-stamp/Vitals_monitoring_system-mkdir.rule
-C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/Vitals_monitoring_system-prefix/src/Vitals_monitoring_system-stamp/Vitals_monitoring_system-patch.rule
-C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/Vitals_monitoring_system-prefix/src/Vitals_monitoring_system-stamp/Vitals_monitoring_system-update.rule
+C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/CMakeFiles/Vitals_monitoring_system
+C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/CMakeFiles/Vitals_monitoring_system.rule
+C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/CMakeFiles/Vitals_monitoring_system-complete.rule
+C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/Vitals_monitoring_system-prefix/src/Vitals_monitoring_system-stamp/Vitals_monitoring_system-build.rule
+C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/Vitals_monitoring_system-prefix/src/Vitals_monitoring_system-stamp/Vitals_monitoring_system-configure.rule
+C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/Vitals_monitoring_system-prefix/src/Vitals_monitoring_system-stamp/Vitals_monitoring_system-download.rule
+C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/Vitals_monitoring_system-prefix/src/Vitals_monitoring_system-stamp/Vitals_monitoring_system-install.rule
+C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/Vitals_monitoring_system-prefix/src/Vitals_monitoring_system-stamp/Vitals_monitoring_system-mkdir.rule
+C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/Vitals_monitoring_system-prefix/src/Vitals_monitoring_system-stamp/Vitals_monitoring_system-patch.rule
+C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/Vitals_monitoring_system-prefix/src/Vitals_monitoring_system-stamp/Vitals_monitoring_system-update.rule

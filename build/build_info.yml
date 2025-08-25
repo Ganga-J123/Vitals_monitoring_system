@@ -7,13 +7,13 @@ cmake:
     revision: 
   kconfig:
     files:
-     - C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/empty.conf
-     - C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/empty.conf
+     - C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/empty.conf
+     - C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/empty.conf
     user-files:
-     - C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/empty.conf
+     - C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/empty.conf
   sysbuild: true
 version: 0.1.0
 west:
-  command: C:\Users\saile\AppData\Local\Programs\Python\Python38\Scripts\west build -b nrf52dk_nrf52832 --pristine
+  command: C:\Users\Ganga Jigajambagi\AppData\Local\Programs\Python\Python313\Scripts\west build -b nrf52dk_nrf52832 --pristine
   topdir: C:\ncs\v2.9.1
-  version: 1.2.0
+  version: 1.4.0

@@ -11,6 +11,8 @@
 #include "ble.h"
 #include "temp.h"
 #include "lis3dh.h"
+#include "ws2812.h"
+#include "button.h"
 
 #define I2C_NODE DT_NODELABEL(i2c0)
 
@@ -340,9 +342,22 @@ void printer_thread(void)
 K_THREAD_DEFINE(sensor_tid, 1280, sensor_thread, NULL, NULL, NULL, 5, 0, 0);
 K_THREAD_DEFINE(printer_tid, 2560, printer_thread, NULL, NULL, NULL, 5, 0, 0);
 
+
+
+
 int main(void)
 {
-    printk("\n********* BOOTING ADPD144RI BLE SENSOR DEMO *********\n");
+    printk("\n********* BOOTING ADPD144RI BLE SENSOR DEMO *********\n");  
+   
+    
+    ws2812_init();
+    k_msleep(50); 
+    ws2812_set_color(&GREEN);
+
+    if (button_init() != 0) {
+        return;
+    }
+
     k_mutex_init(&notify_buf_mutex);
 
     memset(sensor_notify_buf_ppg, 0, sizeof(sensor_notify_buf_ppg));
@@ -354,6 +369,9 @@ int main(void)
     if (err) {
         printk("[BLE] Bluetooth init failed (err %d)\n", err);
     }
-
-    return 0;
+      /* Keep main alive forever */
+    for (;;) {
+        k_sleep(K_FOREVER);
+    }
+     return 0;
 }

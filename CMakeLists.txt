@@ -13,4 +13,6 @@ target_sources(app PRIVATE
     src/rtc.c
     src/temp.c
     src/lis3dh.c
+    src/ws2812.c
+    src/button.c
 )

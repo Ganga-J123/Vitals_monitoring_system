@@ -39,27 +39,27 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/bluetooth/common/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/bluetooth/common/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/bluetooth/host/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/bluetooth/host/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/bluetooth/services/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/bluetooth/services/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/bluetooth/lib/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/bluetooth/lib/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/bluetooth/install_local_manifest.txt"
+  file(WRITE "C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/subsys/bluetooth/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

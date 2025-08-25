@@ -1,12 +1,12 @@
 linker_zephyr_pre0.cmd: \
  C:/ncs/v2.9.1/zephyr/include/zephyr/arch/arm/cortex_m/scripts/linker.ld \
- C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/zephyr/autoconf.h \
+ C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/zephyr/autoconf.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/sections.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/section_tags.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/toolchain.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/toolchain/gcc.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/devicetree.h \
- C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/zephyr/devicetree_generated.h \
+ C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/zephyr/devicetree_generated.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/irq_multilevel.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/sys/util.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/sys/util_macro.h \
@@ -33,15 +33,15 @@ linker_zephyr_pre0.cmd: \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/devicetree_regions.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/linker-defs.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/toolchain/common.h \
- C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/zephyr/offsets.h \
+ C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/zephyr/offsets.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/linker-tool.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/linker-tool-gcc.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/kernel/mm.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/kernel/internal/mm.h \
- C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/pm_config.h \
+ C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/pm_config.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/linker-devnull.h \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/rel-sections.ld \
- C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-rom-start.ld \
+ C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-rom-start.ld \
  c:\ncs\v2.9.1\zephyr\arch\common\rom_start_address.ld \
  c:\ncs\v2.9.1\zephyr\arch\common\fill_with_zeros.ld \
  c:\ncs\v2.9.1\zephyr\arch\common\rom_start_offset.ld \
@@ -61,23 +61,23 @@ linker_zephyr_pre0.cmd: \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/common-rom/common-rom-debug.ld \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/common-rom/common-rom-interrupt-controllers.ld \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/common-rom/common-rom-misc.ld \
- C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-rom-sections.ld \
+ C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-rom-sections.ld \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/thread-local-storage.ld \
- C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-rodata.ld \
+ C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-rodata.ld \
  c:\ncs\v2.9.1\zephyr\arch\arm\core\swi_tables.ld \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/kobject-rom.ld \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/cplusplus-rom.ld \
- C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-ram-sections.ld \
+ C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-ram-sections.ld \
  c:\ncs\v2.9.1\zephyr\modules\segger\segger_rtt.ld \
  c:\ncs\v2.9.1\zephyr\arch\common\ramfunc.ld \
- C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-ramfunc-section.ld \
- C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-rwdata.ld \
+ C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-ramfunc-section.ld \
+ C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-rwdata.ld \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/common-ram.ld \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/kobject-data.ld \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/cplusplus-ram.ld \
- C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-data-sections.ld \
- C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-noinit.ld \
- C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-sections.ld \
+ C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-data-sections.ld \
+ C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-noinit.ld \
+ C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/include/generated/snippets-sections.ld \
  c:\ncs\v2.9.1\zephyr\soc\nordic\common\arm_platform_init.ld \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/intlist.ld \
  C:/ncs/v2.9.1/zephyr/include/zephyr/linker/ram-end.ld \

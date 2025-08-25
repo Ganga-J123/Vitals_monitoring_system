@@ -1,7 +1,7 @@
 cmake:
   application:
-    configuration-dir: C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system
-    source-dir: C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system
+    configuration-dir: C:/ncs/v2.9.1/Vitals_monitoring_system
+    source-dir: C:/ncs/v2.9.1/Vitals_monitoring_system
   board:
     name: nrf52dk
     qualifiers: nrf52832
@@ -12,7 +12,7 @@ cmake:
      - C:/ncs/v2.9.1/zephyr/dts/bindings
     files:
      - C:/ncs/v2.9.1/zephyr/boards/nordic/nrf52dk/nrf52dk_nrf52832.dts
-     - C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/nrf52dk_nrf52832.overlay
+     - C:/ncs/v2.9.1/Vitals_monitoring_system/nrf52dk_nrf52832.overlay
     include-dirs:
      - C:/ncs/v2.9.1/nrf/include
      - C:/ncs/v2.9.1/nrf/dts
@@ -30,14 +30,14 @@ cmake:
      - C:/ncs/v2.9.1/zephyr/dts/arc
      - C:/ncs/v2.9.1/zephyr/dts
     user-files:
-     - C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/nrf52dk_nrf52832.overlay
+     - C:/ncs/v2.9.1/Vitals_monitoring_system/nrf52dk_nrf52832.overlay
   kconfig:
     files:
      - C:/ncs/v2.9.1/zephyr/boards/nordic/nrf52dk/nrf52dk_nrf52832_defconfig
-     - C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/prj.conf
-     - C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/.config.sysbuild
+     - C:/ncs/v2.9.1/Vitals_monitoring_system/prj.conf
+     - C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/zephyr/.config.sysbuild
     user-files:
-     - C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/prj.conf
+     - C:/ncs/v2.9.1/Vitals_monitoring_system/prj.conf
   toolchain:
     name: zephyr
     path: C:/ncs/toolchains/b620d30767/opt/zephyr-sdk

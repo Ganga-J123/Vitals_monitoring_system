@@ -1,14 +1,14 @@
 {
 	"InstallScripts" : 
 	[
-		"C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/cmake_install.cmake",
-		"C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/cmake_install.cmake",
-		"C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/cmake_install.cmake",
-		"C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/bootloader/cmake_install.cmake",
-		"C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/modules/nrf/cmake_install.cmake",
-		"C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/modules/mcuboot/cmake_install.cmake",
-		"C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/boards/cmake_install.cmake",
-		"C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/soc/cmake_install.cmake"
+		"C:/ncs/v2.9.1/Vitals_monitoring_system/build/cmake_install.cmake",
+		"C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/cmake_install.cmake",
+		"C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/cmake_install.cmake",
+		"C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/bootloader/cmake_install.cmake",
+		"C:/ncs/v2.9.1/Vitals_monitoring_system/build/modules/nrf/cmake_install.cmake",
+		"C:/ncs/v2.9.1/Vitals_monitoring_system/build/modules/mcuboot/cmake_install.cmake",
+		"C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/boards/cmake_install.cmake",
+		"C:/ncs/v2.9.1/Vitals_monitoring_system/build/_sysbuild/sysbuild/images/soc/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

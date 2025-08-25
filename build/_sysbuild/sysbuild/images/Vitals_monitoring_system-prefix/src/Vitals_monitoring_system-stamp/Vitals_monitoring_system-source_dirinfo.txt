@@ -4,6 +4,6 @@
 
 method=source_dir
 command=
-source_dir=C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system
+source_dir=C:/ncs/v2.9.1/Vitals_monitoring_system
 work_dir=
 

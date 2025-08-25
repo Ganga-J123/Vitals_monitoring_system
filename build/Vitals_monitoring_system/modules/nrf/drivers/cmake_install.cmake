@@ -39,37 +39,37 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/modules/nrf/drivers/entropy/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/modules/nrf/drivers/entropy/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/modules/nrf/drivers/flash/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/modules/nrf/drivers/flash/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/modules/nrf/drivers/gpio/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/modules/nrf/drivers/gpio/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/modules/nrf/drivers/hw_cc3xx/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/modules/nrf/drivers/hw_cc3xx/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/modules/nrf/drivers/mpsl/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/modules/nrf/drivers/mpsl/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/modules/nrf/drivers/serial/cmake_install.cmake")
+  include("C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/modules/nrf/drivers/serial/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system/modules/nrf/drivers/install_local_manifest.txt"
+  file(WRITE "C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system/modules/nrf/drivers/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

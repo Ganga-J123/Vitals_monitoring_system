@@ -1,7 +1,7 @@
 default: Vitals_monitoring_system
-build_dir: C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build
+build_dir: C:/ncs/v2.9.1/Vitals_monitoring_system/build
 domains:
   - name: Vitals_monitoring_system
-    build_dir: C:/ncs/v2.9.1/nrf/samples/Vitals_monitoring_system/build/Vitals_monitoring_system
+    build_dir: C:/ncs/v2.9.1/Vitals_monitoring_system/build/Vitals_monitoring_system
 flash_order:
   - Vitals_monitoring_system
