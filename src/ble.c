@@ -3,7 +3,8 @@
 #include <zephyr/bluetooth/bluetooth.h>
 #include <zephyr/bluetooth/gatt.h>
 #include <zephyr/bluetooth/uuid.h>
-#include <zephyr/bluetooth/hci.h>
+//#include <zephyr/bluetooth/hci.h>
+//#include <zephyr/pm/pm.h>
 #include <string.h>
 #include "ble.h"
 #include "ws2812.h"
@@ -18,6 +19,30 @@ volatile bool notify_enabled_ppg = false;
 volatile bool notify_enabled_temp = false;
 volatile bool notify_enabled_accel = false;
 struct k_mutex notify_buf_mutex;
+
+//#include <zephyr.h>
+#include <zephyr/logging/log.h>
+
+LOG_MODULE_REGISTER(ble_module, LOG_LEVEL_INF);
+
+struct k_work ble_disconnect_work;
+
+void ble_disconnect_work_handler(struct k_work *work)
+{
+    LOG_INF("No connection for 3 minutes. Powering off.");
+    
+    ws2812_set_color(&OFF);
+    k_msleep(100);
+    ws2812_blink_violet();
+    k_msleep(100);
+    ws2812_set_color(&OFF);
+}
+
+void ble_disconnect_timeout(struct k_timer *dummy)
+{
+    // Schedule the work instead of doing it in timer context
+    k_work_submit(&ble_disconnect_work);
+}
 
 
 /* ---------- UUIDs ---------- */
@@ -161,6 +186,7 @@ void connected(struct bt_conn *conn, uint8_t err)
     current_conn = bt_conn_ref(conn);
     printk("[BLE] Device Connected\n");
      ws2812_set_color(&BLUE);
+       k_timer_stop(&ble_disconnect_timer);
 }
 
 void disconnected(struct bt_conn *conn, uint8_t reason)
@@ -198,6 +224,7 @@ void bt_ready(int err)
         printk("[BLE] Advertising failed to start (err %d)\n", ret);
     } else {
         printk("[BLE] Advertising started successfully!\n");
+          k_timer_init(&ble_disconnect_timer, ble_disconnect_timeout, NULL);
+        k_timer_start(&ble_disconnect_timer, K_MSEC(BLE_TIMEOUT_MS), K_NO_WAIT);
     }
 }
-

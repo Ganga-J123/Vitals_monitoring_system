@@ -24,7 +24,6 @@
 #define ___thread_t_stack_info_OFFSET 0x9c
 #define __z_interrupt_stack_SIZEOF 0x880
 #define __z_interrupt_all_stacks_SIZEOF 0x880
-#define _DEVICE_STRUCT_PM_OFFSET 0x14
 #define _PM_DEVICE_STRUCT_FLAGS_OFFSET 0x0
 #define ___thread_arch_t_basepri_OFFSET 0x0
 #define ___thread_arch_t_swap_return_value_OFFSET 0x4

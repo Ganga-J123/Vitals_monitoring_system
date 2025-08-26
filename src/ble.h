@@ -7,6 +7,12 @@
 
 #define SENSOR_NOTIFY_BUF_SIZE 4096
 
+#include <zephyr/bluetooth/bluetooth.h>
+
+#define BLE_TIMEOUT_MS 180000  // 3 minutes
+
+static struct k_timer ble_disconnect_timer;
+
 // Notification buffers for each sensor
 extern char sensor_notify_buf_ppg[SENSOR_NOTIFY_BUF_SIZE];
 extern char sensor_notify_buf_temp[SENSOR_NOTIFY_BUF_SIZE];
@@ -37,4 +43,6 @@ extern struct k_mutex notify_buf_mutex;
 void bt_ready(int err);
 void connected(struct bt_conn *conn, uint8_t err);
 void disconnected(struct bt_conn *conn, uint8_t reason);
+//void ble_disconnect_timeout(struct k_timer *dummy);
+
 #endif 

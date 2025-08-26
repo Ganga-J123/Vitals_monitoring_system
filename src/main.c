@@ -6,6 +6,9 @@
 #include <stdio.h>
 #include <zephyr/types.h>
 #include <time.h>
+//#include <zephyr.h>
+//#include <device.h>
+//#include <drivers/gpio.h>
 #include "adpd144ri.h"
 #include "rtc.h"
 #include "ble.h"
@@ -15,6 +18,8 @@
 #include "button.h"
 
 #define I2C_NODE DT_NODELABEL(i2c0)
+
+#define GPIO_PIN 16
 
 #define BATCH_SIZE 6
 #define MSGQ_SIZE 20
@@ -343,7 +348,8 @@ K_THREAD_DEFINE(sensor_tid, 1280, sensor_thread, NULL, NULL, NULL, 5, 0, 0);
 K_THREAD_DEFINE(printer_tid, 2560, printer_thread, NULL, NULL, NULL, 5, 0, 0);
 
 
-
+extern struct k_work ble_disconnect_work;
+extern void ble_disconnect_work_handler(struct k_work *work);
 
 int main(void)
 {
@@ -352,8 +358,8 @@ int main(void)
     
     ws2812_init();
     k_msleep(50); 
-    ws2812_set_color(&GREEN);
-
+   ws2812_set_color(&GREEN);
+ //ws2812_set_color(&VIOLET);
     if (button_init() != 0) {
         return;
     }
@@ -369,9 +375,11 @@ int main(void)
     if (err) {
         printk("[BLE] Bluetooth init failed (err %d)\n", err);
     }
-      /* Keep main alive forever */
-    for (;;) {
-        k_sleep(K_FOREVER);
+    else{
+     //   k_timer_init(&ble_disconnect_timer, ble_disconnect_timeout, NULL);
     }
+     // initialize work item
+    k_work_init(&ble_disconnect_work, ble_disconnect_work_handler);
+      
      return 0;
 }
