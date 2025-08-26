@@ -6,9 +6,6 @@
 #include <stdio.h>
 #include <zephyr/types.h>
 #include <time.h>
-//#include <zephyr.h>
-//#include <device.h>
-//#include <drivers/gpio.h>
 #include "adpd144ri.h"
 #include "rtc.h"
 #include "ble.h"
@@ -16,6 +13,7 @@
 #include "lis3dh.h"
 #include "ws2812.h"
 #include "button.h"
+#include "gpio.h"
 
 #define I2C_NODE DT_NODELABEL(i2c0)
 
@@ -48,6 +46,9 @@ extern const struct bt_gatt_attr *temp_char_attr;
 extern const struct bt_gatt_attr *accel_char_attr;
 
 static lis3dh_sensor_t lis3dh_dev;
+
+extern struct k_work ble_disconnect_work;
+extern void ble_disconnect_work_handler(struct k_work *work);
 
 // Custom timegm() replacement (UTC time -> timestamp)
 time_t custom_timegm(struct tm *tm) {
@@ -342,19 +343,15 @@ void printer_thread(void)
     }
 }
 
-
-
 K_THREAD_DEFINE(sensor_tid, 1280, sensor_thread, NULL, NULL, NULL, 5, 0, 0);
 K_THREAD_DEFINE(printer_tid, 2560, printer_thread, NULL, NULL, NULL, 5, 0, 0);
 
-
-extern struct k_work ble_disconnect_work;
-extern void ble_disconnect_work_handler(struct k_work *work);
 
 int main(void)
 {
     printk("\n********* BOOTING ADPD144RI BLE SENSOR DEMO *********\n");  
    
+    gpio_high();
     
     ws2812_init();
     k_msleep(50); 

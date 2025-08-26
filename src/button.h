@@ -17,6 +17,5 @@ typedef enum {
 } button_event_t;
 
 int button_init(void);
-//button_event_t button_get_event(void);
 
 #endif /* BUTTON_H */

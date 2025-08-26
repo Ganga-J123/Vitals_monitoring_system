@@ -3,8 +3,7 @@
 #include <zephyr/bluetooth/bluetooth.h>
 #include <zephyr/bluetooth/gatt.h>
 #include <zephyr/bluetooth/uuid.h>
-//#include <zephyr/bluetooth/hci.h>
-//#include <zephyr/pm/pm.h>
+#include <zephyr/logging/log.h>
 #include <string.h>
 #include "ble.h"
 #include "ws2812.h"
@@ -19,30 +18,6 @@ volatile bool notify_enabled_ppg = false;
 volatile bool notify_enabled_temp = false;
 volatile bool notify_enabled_accel = false;
 struct k_mutex notify_buf_mutex;
-
-//#include <zephyr.h>
-#include <zephyr/logging/log.h>
-
-LOG_MODULE_REGISTER(ble_module, LOG_LEVEL_INF);
-
-struct k_work ble_disconnect_work;
-
-void ble_disconnect_work_handler(struct k_work *work)
-{
-    LOG_INF("No connection for 3 minutes. Powering off.");
-    
-    ws2812_set_color(&OFF);
-    k_msleep(100);
-    ws2812_blink_violet();
-    k_msleep(100);
-    ws2812_set_color(&OFF);
-}
-
-void ble_disconnect_timeout(struct k_timer *dummy)
-{
-    // Schedule the work instead of doing it in timer context
-    k_work_submit(&ble_disconnect_work);
-}
 
 
 /* ---------- UUIDs ---------- */
@@ -206,6 +181,29 @@ BT_CONN_CB_DEFINE(conn_callbacks) = {
     .connected = connected,
     .disconnected = disconnected,
 };
+
+
+LOG_MODULE_REGISTER(ble_module, LOG_LEVEL_INF);
+
+struct k_work ble_disconnect_work;
+
+void ble_disconnect_work_handler(struct k_work *work)
+{
+    LOG_INF("No connection for 3 minutes. Powering off.");
+    
+    ws2812_set_color(&OFF);
+    k_msleep(100);
+    ws2812_blink_violet();
+    k_msleep(100);
+    ws2812_set_color(&OFF);
+}
+
+void ble_disconnect_timeout(struct k_timer *dummy)
+{
+    // Schedule the work instead of doing it in timer context
+    k_work_submit(&ble_disconnect_work);
+}
+
 
 void bt_ready(int err)
 {

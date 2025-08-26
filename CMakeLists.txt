@@ -15,4 +15,5 @@ target_sources(app PRIVATE
     src/lis3dh.c
     src/ws2812.c
     src/button.c
+    src/gpio.c
 )

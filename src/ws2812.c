@@ -6,10 +6,6 @@
 
 LOG_MODULE_REGISTER(ws2812_module, LOG_LEVEL_INF);
 
-#define STRIP_NODE DT_ALIAS(led_strip)
-#define STRIP_NUM_PIXELS 1
-#define DELAY_TIME K_MSEC(50)
-
 static const struct device *strip = DEVICE_DT_GET(STRIP_NODE);
 static struct led_rgb pixel[STRIP_NUM_PIXELS];
 
