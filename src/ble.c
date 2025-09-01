@@ -191,11 +191,7 @@ void ble_disconnect_work_handler(struct k_work *work)
 {
     LOG_INF("No connection for 3 minutes. Powering off.");
     
-    ws2812_set_color(&OFF);
-    k_msleep(100);
     ws2812_blink_violet();
-    k_msleep(100);
-    ws2812_set_color(&OFF);
 }
 
 void ble_disconnect_timeout(struct k_timer *dummy)

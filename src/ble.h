@@ -9,7 +9,7 @@
 
 #include <zephyr/bluetooth/bluetooth.h>
 
-#define BLE_TIMEOUT_MS 180000  // 3 minutes
+#define BLE_TIMEOUT_MS 6000 //180000  // 3 minutes
 
 static struct k_timer ble_disconnect_timer;
 
