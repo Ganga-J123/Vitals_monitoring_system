@@ -9,7 +9,7 @@
 #include "ws2812.h"
 
 
-
+uint16_t patient_id;
 /* Backing storage for ACK characteristic */
 uint8_t ack_value[10];  
 static struct bt_gatt_attr *ack_attr_ref;
@@ -48,7 +48,6 @@ ssize_t write_patient_id(struct bt_conn *conn,
                          uint16_t offset, uint8_t flags)
 {
     if (len == 2) {
-        uint16_t patient_id;
         memcpy(&patient_id, buf, sizeof(patient_id));
         printk("Patient ID received: %u\n", patient_id);
     }

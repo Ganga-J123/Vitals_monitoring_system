@@ -257,6 +257,9 @@ void printer_thread(void *p1, void *p2, void *p3)
     int total_accel_sent = 0;
     bool temp_sent = false;
 
+    bool p_flag=false;
+    bool a_flag=false;
+
     while (1) {
         /* wait until any notify enabled */
         while (!(notify_enabled_ppg || notify_enabled_accel || notify_enabled_temp)) {
@@ -310,7 +313,11 @@ void printer_thread(void *p1, void *p2, void *p3)
 
         if (ppg_count > 0) {
             int pos = 0, len = SENSOR_NOTIFY_BUF_SIZE;
-            pos += snprintf(sensor_notify_buf_ppg + pos, len - pos, "PPG_BATCH:");
+            if(!p_flag){
+                 pos += snprintf(sensor_notify_buf_ppg + pos, len - pos,
+                    "PPG_BATCH:%d", patient_id);
+            }
+         //   pos += snprintf(sensor_notify_buf_ppg + pos, len - pos, "PPG_BATCH:");
             for (int i = 0; i < ppg_count; i++) {
                 format_timestamp(ppg_batch[i].timestamp_ms, ts, sizeof(ts));
                 uint64_t ts_ms = parse_timestamp_ms(ts);
@@ -319,6 +326,8 @@ void printer_thread(void *p1, void *p2, void *p3)
                                 (unsigned long long)ts_ms,
                                 (unsigned long)ppg_batch[i].channels[0],
                                 (unsigned long)ppg_batch[i].channels[1]);
+                    
+                    p_flag=true;
                 if (pos >= len - 64) break;
             }
             sensor_notify_buf_ppg[len - 1] = '\0';
@@ -326,7 +335,10 @@ void printer_thread(void *p1, void *p2, void *p3)
 
         if (accel_count > 0) {
             int pos = 0, len = SENSOR_NOTIFY_BUF_SIZE;
-            pos += snprintf(sensor_notify_buf_accel + pos, len - pos, "ACCEL_BATCH:");
+             if(!a_flag){
+                    pos += snprintf(sensor_notify_buf_accel + pos, len - pos, "ACCEL_BATCH:%d",patient_id);
+            }
+            // pos += snprintf(sensor_notify_buf_accel + pos, len - pos, "ACCEL_BATCH:");
             for (int i = 0; i < accel_count; i++) {
                 format_timestamp(accel_batch[i].timestamp_ms, ts, sizeof(ts));
                 uint64_t ts_ms = parse_timestamp_ms(ts);
@@ -336,6 +348,8 @@ void printer_thread(void *p1, void *p2, void *p3)
                                 accel_batch[i].data[0],
                                 accel_batch[i].data[1],
                                 accel_batch[i].data[2]);
+
+                        a_flag=true;
                 if (pos >= len - 64) break;
             }
             sensor_notify_buf_accel[len - 1] = '\0';
@@ -347,7 +361,7 @@ void printer_thread(void *p1, void *p2, void *p3)
             format_timestamp(temp_sample.timestamp_ms, ts, sizeof(ts));
             uint64_t ts_ms = parse_timestamp_ms(ts);
             pos += snprintk(sensor_notify_buf_temp + pos, len - pos,
-                            "#%llu,%d,%d",
+                            "%d#%llu,%d,%d",patient_id,
                             (unsigned long long)ts_ms,
                             temp_sample.temperature_c, (int)temp_sample.battery_pct);
             sensor_notify_buf_temp[len - 1] = '\0';
@@ -377,6 +391,9 @@ void printer_thread(void *p1, void *p2, void *p3)
 
             p_cnt = 0;
             a_cnt = 0;
+
+            p_flag = false;
+            a_flag = false;
           
 
             rtc2_set_alarm(50000); // 50s
