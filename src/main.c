@@ -162,11 +162,20 @@ void sensor_thread(void *p1, void *p2, void *p3)
     static uint32_t ppg_drops = 0, accel_drops = 0;
     uint64_t last_ppg = 0, last_accel = 0;
 
+    /* Wait here until notify is enabled */
+    while (!ack_notify_enabled) {
+        k_msleep(50);   // Sleep a bit to avoid busy loop
+    }
+
+    /* Once enabled, send the ack */
+    send_ack_to_mobile("2#0");
+
     while (1) {
         /* Wait until any notify is enabled (non-exiting) */
         while (!(notify_enabled_ppg || notify_enabled_accel || notify_enabled_temp)) {
             k_msleep(100);
         }
+       
 
         /* Active collection loop: loop until TEMP triggers end-of-cycle */
         while (notify_enabled_ppg || notify_enabled_accel || notify_enabled_temp) {
@@ -191,10 +200,10 @@ void sensor_thread(void *p1, void *p2, void *p3)
                 }
             }
 
-            k_msleep(5);
+            k_msleep(7);
 
             /* ACCEL pacing: one read every ~20 ms (adjust if needed) */
-            if (notify_enabled_accel && (a_cnt < MAX_SAMPLES) && (now - last_accel >= 20)) {
+            if (notify_enabled_accel && (a_cnt < MAX_SAMPLES) && (now - last_accel >= 10)) {
                 last_accel = now;
                 if (k_mutex_lock(&i2c_bus_mutex, K_MSEC(3)) == 0) {
                     if (lis3dh_read_data(&lis3dh_dev, accel_sample.data)) {
@@ -212,11 +221,11 @@ void sensor_thread(void *p1, void *p2, void *p3)
                 }
             }
 
-            k_msleep(5);
+            k_msleep(7);
 
             /* TEMP end-of-cycle trigger (unchanged) */
             if (notify_enabled_temp && p_cnt >= MAX_SAMPLES && a_cnt >= MAX_SAMPLES) {
-                k_msleep(20);
+                k_msleep(10);
                 if (temp_sensor_read(&temp_sample) == 0) {
                     temp_sample.timestamp_ms = get_timestamp_ms();
                     if (k_msgq_put(&temp_msgq, &temp_sample, K_MSEC(3)) != 0) {
@@ -360,6 +369,7 @@ void printer_thread(void *p1, void *p2, void *p3)
         /* full-cycle handling: reset counters + safe RTC sleep */
         if (temp_sent) {
             printk("[THREAD] Full data cycle sent. Preparing sleep...\n");
+            send_ack_to_mobile("1#0");
 
             total_ppg_sent = 0;
             total_accel_sent = 0;
@@ -379,6 +389,7 @@ void printer_thread(void *p1, void *p2, void *p3)
                 /* still loop checking alarm flag; this keeps other threads runnable */
             }
             printk("[THREAD] Woke up, starting new cycle.\n");
+            send_ack_to_mobile("2#0");
         }
     } /* while */
 }
