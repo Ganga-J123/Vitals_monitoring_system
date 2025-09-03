@@ -10,7 +10,7 @@
 
 #include <zephyr/bluetooth/bluetooth.h>
 
-#define BLE_TIMEOUT_MS 6000 //180000  // 3 minutes
+#define BLE_TIMEOUT_MS 180000  // 3 minutes
 
 static struct k_timer ble_disconnect_timer;
 
@@ -49,7 +49,7 @@ void disconnected(struct bt_conn *conn, uint8_t reason);
 
 extern uint8_t ack_value[10];
 extern uint16_t patient_id;
-extern uint32_t timestamp;
+extern uint32_t timestamp_s;
 
 void send_ack_to_mobile(const char *ack_msg);
 #endif 

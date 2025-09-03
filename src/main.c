@@ -153,7 +153,7 @@ void sensor_thread(void *p1, void *p2, void *p3)
     if (temp_sensor_init() != 0) {
         printk("[TEMP] Temperature sensor initialization failed\n");
     }
-    rtc2_init();
+  //  rtc2_init();
 
     PPGSample ppg_sample;
     lis3dh_data_t accel_sample;
@@ -317,13 +317,12 @@ void printer_thread(void *p1, void *p2, void *p3)
                  pos += snprintf(sensor_notify_buf_ppg + pos, len - pos,
                     "PPG_BATCH:%d", patient_id);
             }
-         //   pos += snprintf(sensor_notify_buf_ppg + pos, len - pos, "PPG_BATCH:");
             for (int i = 0; i < ppg_count; i++) {
-                format_timestamp(ppg_batch[i].timestamp_ms, ts, sizeof(ts));
-                uint64_t ts_ms = parse_timestamp_ms(ts);
+             //   format_timestamp(ppg_batch[i].timestamp_ms, ts, sizeof(ts));
+               // uint64_t ts_ms = parse_timestamp_ms(ts);
                 pos += snprintk(sensor_notify_buf_ppg + pos, len - pos,
                                 "#%llu,%lx,%lx",
-                                (unsigned long long)ts_ms,
+                                (unsigned long long)ppg_batch[i].timestamp_ms,
                                 (unsigned long)ppg_batch[i].channels[0],
                                 (unsigned long)ppg_batch[i].channels[1]);
                     
@@ -338,13 +337,12 @@ void printer_thread(void *p1, void *p2, void *p3)
              if(!a_flag){
                     pos += snprintf(sensor_notify_buf_accel + pos, len - pos, "ACCEL_BATCH:%d",patient_id);
             }
-            // pos += snprintf(sensor_notify_buf_accel + pos, len - pos, "ACCEL_BATCH:");
             for (int i = 0; i < accel_count; i++) {
-                format_timestamp(accel_batch[i].timestamp_ms, ts, sizeof(ts));
-                uint64_t ts_ms = parse_timestamp_ms(ts);
+            //    format_timestamp(accel_batch[i].timestamp_ms, ts, sizeof(ts));
+              //  uint64_t ts_ms = parse_timestamp_ms(ts);
                 pos += snprintk(sensor_notify_buf_accel + pos, len - pos,
                                 "#%llu,%d,%d,%d",
-                                (unsigned long long)ts_ms,
+                                (unsigned long long)accel_batch[i].timestamp_ms,
                                 accel_batch[i].data[0],
                                 accel_batch[i].data[1],
                                 accel_batch[i].data[2]);
@@ -358,21 +356,16 @@ void printer_thread(void *p1, void *p2, void *p3)
         if (temp_count > 0) {
             int pos = 0, len = SENSOR_NOTIFY_BUF_SIZE;
             pos += snprintf(sensor_notify_buf_temp + pos, len - pos, "TEMP_BATCH:");
-            format_timestamp(temp_sample.timestamp_ms, ts, sizeof(ts));
-            uint64_t ts_ms = parse_timestamp_ms(ts);
+          //  format_timestamp(temp_sample.timestamp_ms, ts, sizeof(ts));
+          //  uint64_t ts_ms = parse_timestamp_ms(ts);
             pos += snprintk(sensor_notify_buf_temp + pos, len - pos,
                             "%d#%llu,%d,%d",patient_id,
-                            (unsigned long long)ts_ms,
+                            (unsigned long long)temp_sample.timestamp_ms,
                             temp_sample.temperature_c, (int)temp_sample.battery_pct);
             sensor_notify_buf_temp[len - 1] = '\0';
         }
 
         k_mutex_unlock(&notify_buf_mutex);
-
-        /* print/send */
-     /*   if (ppg_count > 0) printk("[PRINTER] PPG:\n%s\n", sensor_notify_buf_ppg);
-        if (accel_count > 0) printk("[PRINTER] ACCEL:\n%s\n", sensor_notify_buf_accel);
-        if (temp_count > 0) printk("[PRINTER] TEMP:\n%s\n", sensor_notify_buf_temp);  */
 
         if (current_conn) {
             if (ppg_count > 0) bt_gatt_notify(current_conn, ppg_char_attr, sensor_notify_buf_ppg, strlen(sensor_notify_buf_ppg));
@@ -410,14 +403,6 @@ void printer_thread(void *p1, void *p2, void *p3)
         }
     } /* while */
 }
-
-
-
-// High-priority sensor thread to avoid dropping samples
-//K_THREAD_DEFINE(sensor_tid, 1280, sensor_thread, NULL, NULL, NULL, 10, 0, 0);
-
-// Printer/logging thread lower than sensor
-//K_THREAD_DEFINE(printer_tid, 2560, printer_thread, NULL, NULL, NULL, 9, 0, 0);
 
 
 #define INIT_THREAD_STACK 512

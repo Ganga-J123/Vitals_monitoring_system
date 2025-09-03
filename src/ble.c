@@ -54,19 +54,34 @@ ssize_t write_patient_id(struct bt_conn *conn,
     return len;
 }
 
-/* --- Timestamp Characteristic --- */
+uint32_t UNIX_TIME_START = 0;
+
 ssize_t write_timestamp(struct bt_conn *conn,
                         const struct bt_gatt_attr *attr,
                         const void *buf, uint16_t len,
                         uint16_t offset, uint8_t flags)
 {
-    if (len == 4) {  // or 8 if you want 64-bit
-        uint32_t timestamp;
-        memcpy(&timestamp, buf, sizeof(timestamp));
-        printk("Timestamp received: %u\n", timestamp);
+    if (len == 4) {
+        uint32_t unix_time =
+              ((uint32_t)((uint8_t*)buf)[0]) |
+              ((uint32_t)((uint8_t*)buf)[1] << 8) |
+              ((uint32_t)((uint8_t*)buf)[2] << 16) |
+              ((uint32_t)((uint8_t*)buf)[3] << 24);
+
+        printk("Received UNIX time: %u (s)\n", unix_time);
+
+        rtc2_init(unix_time);  
+
+        uint64_t now = get_timestamp_ms();
+        printk("Full timestamp (ms): %llu\n", (uint64_t)now);
+
+        char buf_time[32];
+        format_timestamp(now, buf_time, sizeof(buf_time));
+        printk("Formatted time: %s\n", buf_time);
     }
     return len;
 }
+
 
 
 
